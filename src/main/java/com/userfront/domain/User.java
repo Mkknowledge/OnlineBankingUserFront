@@ -6,7 +6,7 @@ public class User {
 	
 	private Long userId;
 	private String username;
-	private String passward;
+	private String password;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -38,12 +38,12 @@ public class User {
 		this.username = username;
 	}
 
-	public String getPassward() {
-		return passward;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPassward(String passward) {
-		this.passward = passward;
+	public void setPassword(String passward) {
+		this.password = passward;
 	}
 
 	public String getFirstName() {
@@ -120,7 +120,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", username=" + username + ", passward=" + passward + ", firstName="
+		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", email=" + email + ", phone=" + phone + ", enabled="
 				+ enabled + "]";
 	}
