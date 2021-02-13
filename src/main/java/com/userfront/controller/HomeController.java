@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.userfront.domain.User;
+import com.userfront.domain.UserService;
 
 @Controller
 public class HomeController {
+	
+	private UserService userService;
 
 	@GetMapping({"/"})
 	public String home(Model model) {
@@ -33,8 +36,24 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public void signupPost(@ModelAttribute("user") User user,  Model model) {
+    public String signupPost(@ModelAttribute("user") User user,  Model model) {
 
+		if(userService.checkUserExists(user.getUsername(), user.getEmail())) {
+			
+			if(userService.checkEmailExists(user.getEmail())) {
+				model.addAttribute("emailExists", true);
+			}
+			
+			if(userService.checkUsernameExists(user.getUsername())) {
+				model.addAttribute("usernameExists", true);
+			}
+			return "signup";
+			
+		} else {
+			userService.save(user);
+			
+			return "redirect:/";
+		}
 		
     }
 }
