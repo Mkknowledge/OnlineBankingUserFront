@@ -1,11 +1,11 @@
 package com.userfront.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.userfront.domain.User;
 import com.userfront.domain.UserService;
@@ -13,6 +13,7 @@ import com.userfront.domain.UserService;
 @Controller
 public class HomeController {
 	
+	@Autowired
 	private UserService userService;
 
 	@GetMapping({"/"})
@@ -35,7 +36,7 @@ public class HomeController {
 		return "signup";
 	}
 	
-	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	@PostMapping("/signup")
     public String signupPost(@ModelAttribute("user") User user,  Model model) {
 
 		if(userService.checkUserExists(user.getUsername(), user.getEmail())) {
@@ -53,7 +54,7 @@ public class HomeController {
 			userService.save(user);
 			
 			return "redirect:/";
-		}
+			} 
 		
     }
 }
