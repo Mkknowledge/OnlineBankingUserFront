@@ -1,4 +1,4 @@
-package com.userfront.service.userserviceimpl;
+package com.userfront.userservice.userserviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
