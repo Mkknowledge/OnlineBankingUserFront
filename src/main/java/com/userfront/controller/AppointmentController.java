@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.userfront.domain.Appointment;
 import com.userfront.domain.User;
+import com.userfront.userservice.AppointmentService;
 import com.userfront.userservice.UserService;
 
 

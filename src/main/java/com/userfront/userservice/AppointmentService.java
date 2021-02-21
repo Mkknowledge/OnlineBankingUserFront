@@ -1,6 +1,7 @@
 package com.userfront.userservice;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.userfront.domain.Appointment;
 
@@ -9,7 +10,9 @@ public interface AppointmentService {
 
     List<Appointment> findAll();
 
-    Appointment findAppointment(Long id);
+    Optional<Appointment> findAppointment(Long id);
+    
+    Appointment findAppointment1(Long id);
 
     void confirmAppointment(Long id);
 }

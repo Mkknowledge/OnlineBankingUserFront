@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.userfront.domain.User;
-import com.userfront.service.UserService;
+import com.userfront.userservice.UserService;
 
 @Controller
 @RequestMapping("/user")
@@ -39,7 +39,7 @@ public class UserController {
 
         model.addAttribute("user", user);
 
-        userService.saveUser(user);
+        userService.save(user);
 
         return "profile";
     }
